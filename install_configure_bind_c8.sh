@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo -e "Hello!! This script will install and configure bind/DNS service by itself :)"
+echo -e "\t\tHello!! This script will install and configure bind/DNS service by itself :)"
 echo -e "\n\n--STEP 1----------------- Install bind DNS on CentOS 8  ------------------\n\n"
 
 touch /etc/hostname
 echo -e "maindnssrv.lixhm.local" > /etc/hostname
 
-yum install -y bind bind-utils
+yum install -y bind bind-utils make
 
 echo -e "\n\n--STEP 2-------------- Configure bind DNS server on CentOS 8  -------------\n\n"
 
@@ -43,7 +43,7 @@ named-checkzone 192.168.0.207 /var/named/lixhm.local.reverse
 systemctl stop firewalld
 systemctl restart named
 
-systemctl status named | grep active
+echo -e "\n" && systemctl status named | grep active
 
 <<'###BLOCK-COMMENT'
 nslookup maindnssrv.lixhm.local
@@ -83,9 +83,15 @@ systemctl status named | grep active
 
 echo -e " \n\n-----* CHECK 4 *----- Checking resolving records  of DNS service -------- \n\n"
 
+echo -e "--------- nslookup maindnssrv.lixhm.local ---------------\n"
 nslookup maindnssrv.lixhm.local
+echo -e "\n--------- nslookup www.lixhm.local ---------------\b"
 nslookup www.lixhm.local
+echo -e "\n--------- nslookup ftp.lixhm.local ---------------\n"
 nslookup ftp.lixhm.local
+echo -e "\n--------- nslookup mail1.lixhm.local ---------------\n"
 nslookup mail1.lixhm.local
+echo -e "\n--------- nslookup 192.168.0.207 ---------------\n"
 nslookup 192.168.0.207
+echo -e "\n--------- nslookup 127.0.0.1 ---------------\n"
 nslookup 127.0.0.1
