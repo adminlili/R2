@@ -40,6 +40,7 @@ systemctl enable php-fpm
 systemctl enable php73-php-fpm
 systemctl enable php56-php-fpm
 systemctl enable nginx
+
 systemctl restart nginx
 systemctl restart php-fpm
 systemctl restart php56-php-fpm
