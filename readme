@@ -1,4 +1,18 @@
-On this brnach saved working configs for configure bind9 for Centos8/Centos7.
-Configs are only for particular configuring BIND/DNS service. 
+On this branch saved working configs for configure
+	 nginx+PHP-FPM (php7.3 and php 5.6)+SSL/TLS for Centos8/Centos7.
+Configs are only for particular configuring  nginx+PHP-FPM services. 
 
 :)
+
+P.S.
+On client needs to edit files /etc/resolv.conf and /etc/hosts
+
+/etc/resolv.conf -----------> needs to add DNS server IPs
+/etc/hosts -----------> needs to add IP<tab>FQDN_hosts
+    EXAMPLE:
+    xxx.xxx.xxx.xxx<TAB>test1.mainfqdn.local
+    xxx.xxx.xxx.xxx<TAB>test2.mainfqdn.local
+    xxx.xxx.xxx.xxx<TAB>test3.mainfqdn.local
+    xxx.xxx.xxx.xxx<TAB>test4.mainfqdn.local
+
+And, of course, run the command: 'systemctl restart NetworkManager'.
