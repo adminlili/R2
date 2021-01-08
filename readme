@@ -1,0 +1,3 @@
+This is a simple script that will create a full acrhive once a week, on Sundays, and
+ incremental to it on other days.
+
